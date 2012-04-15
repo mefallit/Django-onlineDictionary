@@ -1,3 +1,5 @@
 This project created for Web Service class. 
 
 python manage.py runserver 
+
+http://127.0.0.1:8000/
