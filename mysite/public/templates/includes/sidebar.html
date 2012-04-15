@@ -1,0 +1,59 @@
+<div class="sidebar">
+{% if is_logged_in %}
+
+	<div class="login-form logged">
+		<form class="logout" action="/logout/" method="get">
+		<span class="username">Logged as: <span class="userName">{% block username %}{{username}}{%endblock%}</span>
+		      <input type="submit" value="Logout"\>
+   		</form>
+	</div>
+{% else %}
+<div class="loginContainer">
+			<div class="login-form twitter">
+				<h2>
+					You can login with 
+				</h2>
+				<span id="login"></span>
+				<script type="text/javascript">
+					 twttr.anywhere(function (T) {
+						T("#login").connectButton({ size: "large" });
+					});
+				</script>
+			</div>
+			<div class="login-form form">
+				<h2> Sign In </h2>
+				<form class="loginForm" name="login" action="login.py">
+					<input type="text" name="username" placeholder="username">
+					<input type="password" name="password" placeholder="password">
+					<input type="submit" value="log in">	
+				</form>
+
+			</div>
+		
+</div>
+{% endif %}
+
+<script>
+			$(document).ready(function() {
+				// Check if JavaScript is enabled
+				$('body').addClass('js');
+				// Make the checkbox checked on load
+				$('.login-form span').addClass('checked').children('input').attr('checked', true);
+				// Click function
+				$('.login-form span').on('click', function() {
+
+					if ($(this).children('input').attr('checked')) {
+						$(this).children('input').attr('checked', false);
+						$(this).removeClass('checked');
+					}
+
+					else {
+						$(this).children('input').attr('checked', true);
+						$(this).addClass('checked');
+					}
+				});
+			});
+		</script>	
+</div>
+
+
