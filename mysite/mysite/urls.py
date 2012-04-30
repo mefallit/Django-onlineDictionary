@@ -1,13 +1,15 @@
 from django.views.static import *
 from django.conf import settings
 from django.conf.urls import patterns, include, url
-from mysite.views import hello, homepage, current_datetime, login
+from mysite.views import hello, homepage, current_datetime, login, item, register
 
 urlpatterns = patterns('',
+   ('^login/$', homepage),
    ('^hello/$', hello),
    ('^$', homepage),
-   ('^time/$', current_datetime),
-   ('^login/$', homepage),
+   ('^time/$', current_datetime),   
    (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
-   """(r'^logout/$', logout),"""
+   ('^item/$', item),
+   (r'^item/[a-zA-Z]+/$', item),
+   ('^register/$', register),
 )
