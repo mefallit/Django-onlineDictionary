@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html> 
+	<head>
+		{% include "includes/meta.html" %}
+	</head>
+	<body>
+	<div class="container">
+	        {% include "includes/header.html" %}
+		{% include "includes/items.html" %}
+		<div class="contentContainer">
+			
+			{% include "includes/sidebar.html" %}
+			<div class="content">
+				<div class="formContainer">
+				<p> 1. Enter your name, lastname and gender: </p>
+				<span class="element">First name: <input type="text" name="firstname"></span>
+				<span class="element">Last name: <input type="text" name="lastname"></span>
+				<span class="element">Password <input type="text" name="firstname"></span>
+				<span class="element">Confirm password <input type="text" name="lastname"></span>
+				<span class="element">E-mail <input type="text" name="firstname"></span>
+				<div class="formContainer">
+					<p> Gender: </p>
+					<span class="element"><input type="radio" value="male" name="sex"> Male</span>
+					<span class="element"><input type="radio" value="female" name="sex"> Female</span>
+				</div>
+				<div class="submitButton">
+					<input type="submit" onclick="isValid()" value="Submit">
+				</div>
+				</div>
+			</div>
+		{% include "includes/footer.html" %}
+	</div>
+	</body>
+</html>

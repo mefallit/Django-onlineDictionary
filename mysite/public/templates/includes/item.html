@@ -1,0 +1,39 @@
+<div class="item">
+	<a href="javascript:;" class="title">
+		<span class="arrow">></span>
+		<span class="txt">{{item_name}}</span>
+	</a>	
+</div>
+<div class="entryContainer">
+
+   <div class="entryList">
+	{% for entry in entry_list %}
+	<div class="entry">
+		<span class="entryRound"> {{entry.round}}</span>
+		<span class="text">{{entry.text}}</span>
+		<div class="entryInfo">
+			<span class="entryWriter" id="{{entry.eUserId}}">{{entry.eUserName}}</span>
+			<span class="entryDate"> {{entry.date}} - </span>
+			{% if 'mefallit' == "mefallit" %}
+			  <div class="links">
+				<span class="link delete"> Delete </span>
+				- 
+				<span class="link edit"> Edit </span>
+			  </div>
+			{% endif %}
+		</div>
+	</div>
+	{% empty %}
+	<span class="noEntryCase"> You can add you comments to {{item_name}} </span>
+	{%endfor%}
+   </div>
+{% if is_logged_in %}
+   <div class="writeEntry">
+	<textarea name="entryText" class="entryTxt"></textarea>
+	<span class="entyrBtn">Send</span>
+   </div>
+{% endif %}
+</div>
+
+
+
