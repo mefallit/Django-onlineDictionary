@@ -3,7 +3,8 @@ from django.http import HttpResponse
 import datetime
 
 def hello(request):
-    return HttpResponse("Hello world")
+	ua = request.META.get('HTTP_USER_AGENT', 'unknown')
+	return HttpResponse("Your browser is %s" % ua)
 
 def homepage(request):
     return render_to_response('homepage.html', {'is_logged_in': False, 'username' : 'mefallit', "item_list" : [ {'item_name': "Lorem ipsum", 'username' : 'mefallit', 'is_logged_in': False, 'userId' : "123789", 'entry_list' : [ { "round": "1", "text" : "laylaylay", "eUserName" : "mefallit", "date" : "11.02.2012", "eUserId" : "123789"}, { "round": "2", "text" : "olalala", "eUserName" : "baturay", "date" : "11.04.2012", "eUserId" : "12345"}]},
